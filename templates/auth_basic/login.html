@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Please Login</h1>
+    <form action="{% url 'auth_basic:user_login' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Enter username...">
+{#            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>#}
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter password...">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+{% endblock %}
